@@ -14,7 +14,7 @@ In order to install the app the user must have install Node/NPM on their worksta
 npm install
 ```
 
-### Run the app 
+### Run the app
 
 After the installation
 
