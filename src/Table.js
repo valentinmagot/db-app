@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Table } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
 
 class TableComp extends Component {
    constructor(props) {

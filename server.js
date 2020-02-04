@@ -47,6 +47,48 @@ app.get('/api/athletes', function(request, response) {
     
 });
 
+app.get('/api/competitions', function(request, response) {
+    pool.connect((err, db, done)=>{
+        if(err){
+            return  response.status(400).send(err);
+        }else {
+
+            db.query('SELECT * FROM competitions', (err, table) => {
+                done();
+                if(err){
+                    return  response.status(400).send(err);
+                }else {
+                    console.log('DATA OBTAINED')
+                    return response.status(200).send(table.rows);
+                }
+            });
+
+        }
+    })
+    
+});
+
+app.get('/api/registrations', function(request, response) {
+    pool.connect((err, db, done)=>{
+        if(err){
+            return  response.status(400).send(err);
+        }else {
+
+            db.query('SELECT * FROM registrations', (err, table) => {
+                done();
+                if(err){
+                    return  response.status(400).send(err);
+                }else {
+                    console.log('DATA OBTAINED')
+                    return response.status(200).send(table.rows);
+                }
+            });
+
+        }
+    })
+    
+});
+
 app.listen(PORT, () => console.log('Listening on port ' + PORT));
 
 
