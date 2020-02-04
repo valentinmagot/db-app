@@ -23,9 +23,12 @@ class App extends Component {
           .then(function(response){
             response.json().then(function(data){
                 console.log(data);
-                that.setState({
-                  athletes: data,
-                })
+                if(data.name !== 'error'){
+                  that.setState({
+                    athletes: data,
+                  })
+                }
+                
             })
           })
 
@@ -33,13 +36,16 @@ class App extends Component {
           .then(function(response){
             response.json().then(function(data){
                 console.log(data);
-                data.forEach(element => {
-                  var duration = element.duration.days.toString() + ' days ' +element.duration.hours.toString() + ' hours.';
-                  element.duration = duration;
-                });
-                that.setState({
-                  competitions: data,
-                })
+                if(data.name !== 'error'){
+                  data.forEach(element => {
+                    var duration = element.duration.days.toString() + ' days ' +element.duration.hours.toString() + ' hours.';
+                    element.duration = duration;
+                  });
+                  that.setState({
+                    competitions: data,
+                  })
+                }
+                
             })
           })
 
@@ -47,9 +53,11 @@ class App extends Component {
           .then(function(response){
             response.json().then(function(data){
                 console.log(data);
-                that.setState({
-                  registrations: data,
-                })
+                if(data.name !== 'error'){
+                  that.setState({
+                    registrations: data,
+                  })
+                }
             })
           })
 
