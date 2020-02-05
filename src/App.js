@@ -37,10 +37,10 @@ class App extends Component {
             response.json().then(function(data){
                 console.log(data);
                 if(data.name !== 'error'){
-                  data.forEach(element => {
-                    var duration = element.duration.days.toString() + ' days ' +element.duration.hours.toString() + ' hours.';
-                    element.duration = duration;
-                  });
+                  // data.forEach(element => {
+                  //   var duration = element.duration.days.toString() + ' days ' +element.duration.hours.toString() + ' hours.';
+                  //   element.duration = duration;
+                  // });
                   that.setState({
                     competitions: data,
                   })
