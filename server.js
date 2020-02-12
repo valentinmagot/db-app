@@ -8,7 +8,7 @@ let app = express();
 const pool = new pg.Pool({
     user: 'postgres',
     host: 'localhost',
-    database: 'Leaderboard',
+    database: 'Leaderboard_migrated',
     password: 'valentin0604',
     port: 5432
 });
