@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
-import './Table.js'
-import TableComp from './Table.js';
+import '../Table.js'
+import TableComp from '../Table.js';
+import NavigationBar from './NavigationBar'
+import '../Style/Data.scss'
+
 
 class Data extends Component {
 
@@ -79,7 +82,8 @@ class Data extends Component {
     let competitionTitle = 'Competition Table';
     let registrationTitle = 'Registration Table';
     return (
-      <div className="App">
+      <div className="Data">
+        <NavigationBar bgColor='parent' />
         <TableComp title={athleteTitle} data={athletes}/>
         <TableComp title={competitionTitle} data={competitions}/>
         <TableComp title={registrationTitle} data={registrations}/>
