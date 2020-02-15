@@ -2,9 +2,11 @@ import React, {Component} from 'react';
 import './App.css';
 import './Table.js'
 import {  BrowserRouter as Router  , Switch, Route} from 'react-router-dom';
-import HamburgerMenuPage from './HamburgerMenuPage.js';
-import Data from './Data.js';
-import LandingPage from './LandingPage.js';
+// import HamburgerMenuPage from './HamburgerMenuPage.js';
+// import NavigationBar from './NavigationBar.js';
+import Data from './Components/Data.js';
+import LandingPage from './Components/LandingPage.js';
+
 
 class App extends Component {
 
@@ -17,10 +19,9 @@ class App extends Component {
     return (
       <Router>
       <div className="App">
-        <HamburgerMenuPage />
       </div>
       <Switch >
-            <Route path="/" exact component={LandingPage}/>
+            <Route  path="/" exact component={LandingPage}/>
             <Route path="/Data" component={Data}/>
         </Switch>
     </Router>
@@ -28,7 +29,6 @@ class App extends Component {
 
   }
 
-  
 }
 
 export default App;

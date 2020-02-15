@@ -1,0 +1,99 @@
+
+$primary: #222C34;
+$secondary: #F2F2F2;
+$tertiary: rgba(242, 242, 242, 0.70);
+$control: #D95D30;
+$control-active: rgba(217, 93, 48, 0.555);
+$control-used: #F4AB82;
+$bg-used: #5D646A;
+$lang: #A63921;
+$roboto: 'Roboto', sans-serif;
+$lato: 'Lato', sans-serif;
+$siracha: 'Sriracha', cursive;
+$Odibee: 'Odibee Sans', cursive;
+$transparent: 'transparent';
+
+.hero-image {
+  background-image: url('../bg_web.png');
+
+  /* Set a specific height */
+  height: 100vh;
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+
+}
+
+.info {
+    font-family: $roboto;
+    margin-top: auto;
+    margin-bottom: 5em;
+    color: $secondary;
+    text-align: center;
+    width: 80%;
+    height: 70%;
+    background-color: $transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main-text {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+.sub-text {
+    color: $tertiary;
+}
+
+.partners-link {
+    color: $control;
+    border-bottom: 0.5px solid $control;
+    cursor: pointer;
+}
+
+.partners-link:hover {
+    color: $control-active;
+    border-bottom: 0.5px solid $control-active;
+    cursor: pointer;
+}
+
+.button {
+    text-transform: uppercase;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    color: $control !important;
+    background-color: $primary !important;
+    border: 2px solid $control !important;
+    cursor: pointer;
+    border-radius: .25rem!important;
+}
+
+.button:hover {
+    padding-top: .7rem;
+    padding-bottom: .7rem;
+    color: $control-used !important;
+    background-color: $bg-used !important;
+    border: 1px solid $control-used !important;
+    cursor: pointer;
+}
+
+@media only screen and (min-width : 600px) {
+
+    .button  {
+      width: 340px;
+      align-self: center;
+    }
+
+    .main-text {
+        font-size: 1.75rem;
+    }
+
+}
