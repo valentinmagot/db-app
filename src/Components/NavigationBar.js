@@ -17,7 +17,7 @@ class NavigationBar extends Component {
     let bgColor = this.props.bgColor;
     return (
         <div>
-        <Navbar  id='navigation' className="nav fixed-top p-2 " bsPrefix={bgColor} >
+        <Navbar  id='navigation' className="nav  p-2 " bsPrefix={bgColor} >
           <Navbar.Brand className="mr-auto" id="navBrand" href={'/'}>
             FitBoard
           </Navbar.Brand>

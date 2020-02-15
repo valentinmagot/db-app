@@ -25,7 +25,9 @@ $transparent: 'transparent';
   position: relative;
   margin: 0;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+//   justify-content: center;
+  
 
 }
 
@@ -41,6 +43,7 @@ $transparent: 'transparent';
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-self: center;
 }
 
 .main-text {
