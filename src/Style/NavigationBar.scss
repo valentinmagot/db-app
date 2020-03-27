@@ -1,0 +1,69 @@
+$primary: #222C34;
+$secondary: #F2F2F2;
+$control: #D95D30;
+$lang: #A63921;
+$roboto: 'Roboto', sans-serif;
+$lato: 'Lato', sans-serif;
+$siracha: 'Sriracha', cursive;
+$Odibee: 'Odibee Sans', cursive;
+
+/* Navigation bar */
+
+.navigation-bar {
+    background-color: $primary;
+    height: 9vh;
+}
+  
+#navBrand {
+    color: $secondary;
+    // font-family: $roboto;
+    font-family: $Odibee;
+}
+
+.link {
+  color: $secondary;
+}
+
+.link:hover:last-child {
+  text-decoration: none;
+  color: $lang;
+ 
+}
+
+.link:hover {
+  color: $control;
+
+}
+#navigation {
+  align-items: center;
+  // padding: .5rem;
+  padding-left: 6rem !important;
+  padding-right: 6rem !important;
+  // position: fixed;
+  // top: 0;
+  // right: 0;
+  // left: 0;
+  // z-index: 1030;
+}
+
+.transparent {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.parent {
+  background-color: $primary;
+}
+
+  @media only screen and (max-width : 600px) {
+
+    #nav-link  {
+      display: none;
+    }
+
+    #navigation {
+      padding-left: 2.3rem !important;
+      padding-right: 2.3rem !important;
+    }
+
+}

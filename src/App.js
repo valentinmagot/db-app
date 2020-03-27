@@ -1,97 +1,36 @@
 import React, {Component} from 'react';
 import './App.css';
 import './Table.js'
-import TableComp from './Table.js';
+import {  BrowserRouter as Router  , Switch, Route} from 'react-router-dom';
+// import HamburgerMenuPage from './HamburgerMenuPage.js';
+// import NavigationBar from './NavigationBar.js';
+import Data from './Components/Data.js';
+import LandingPage from './Components/LandingPage.js';
+import PartnersPage from './Components/PartnersPage';
+
 
 class App extends Component {
 
-  constructor(){
-    super();
-    this.state = {
-        title: 'LEADER BOARD APP',
-        competitions: [],
-        athletes: [],
-        registrations: [],
-    }
-  }
+  // constructor(){
+  //   super();
 
-       // MAKES AJAX CALL
-       componentDidMount() {
-        console.log("COMPONENT HAS MOUNTED");
-        var that = this;
-        fetch('http://localhost:3001/api/athletes')
-          .then(function(response){
-            response.json().then(function(data){
-                console.log(data);
-                if(data.name !== 'error'){
-                  that.setState({
-                    athletes: data,
-                  })
-                }
-                
-            })
-          })
-
-          fetch('http://localhost:3001/api/competitions')
-          .then(function(response){
-            response.json().then(function(data){
-                console.log(data);
-                if(data.name !== 'error'){
-                  // data.forEach(element => {
-                  //   var duration = element.duration.days.toString() + ' days ' +element.duration.hours.toString() + ' hours.';
-                  //   element.duration = duration;
-                  // });
-                  that.setState({
-                    competitions: data,
-                  })
-                }
-                
-            })
-          })
-
-          fetch('http://localhost:3001/api/registrations')
-          .then(function(response){
-            response.json().then(function(data){
-                console.log(data);
-                if(data.name !== 'error'){
-                  that.setState({
-                    registrations: data,
-                  })
-                }
-            })
-          })
-
-          
-      }
-      setDuration(){
-
-        this.state.competitions.forEach(element => {
-          var duration = element.duration.hours.toString() + ' days ' +element.duration.hours.toString() + ' hours.';
-          element.duration = duration;
-        });
-
-      }
-      
-
+  // }
+  
   render() {
-    let title = this.state.title;
-    let athletes = this.state.athletes;
-    let competitions = this.state.competitions;
-    let registrations = this.state.registrations;
-    let athleteTitle = 'Athlete Table';
-    let competitionTitle = 'Competition Table';
-    let registrationTitle = 'Registration Table';
     return (
+      <Router>
       <div className="App">
-        <h1>{title}</h1>
-        <TableComp title={athleteTitle} data={athletes}/>
-        <TableComp title={competitionTitle} data={competitions}/>
-        <TableComp title={registrationTitle} data={registrations}/>
       </div>
+      <Switch >
+            <Route  path="/" exact component={LandingPage}/>
+            <Route path="/Data" component={Data}/>
+            <Route path="/PartnersPage" component={PartnersPage}/>
+        </Switch>
+    </Router>
     );
 
   }
-  
+
 }
 
 export default App;

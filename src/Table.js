@@ -8,7 +8,6 @@ class TableComp extends Component {
       this.getRowsData = this.getRowsData.bind(this);
       this.getKeys = this.getKeys.bind(this);
       this.state = { //state is by default an object
-         athletes: [{id: "", firstname: "", lastname: "", email: "", dob: ""}],
       }
    }
    
@@ -29,27 +28,15 @@ class TableComp extends Component {
   }
 
   getRowsData = function () {
-      var items = this.props.data;
-      var keys = this.getKeys();
-      return items.map((row, index) => {
-          return <tr key={index}><RenderRow key ={index}  data={row} keys={keys}/></tr>
-      })
+      if(this.props.data != null){
+        var items = this.props.data;
+        var keys = this.getKeys();
+        return items.map((row, index) => {
+            return <tr key={index}><RenderRow key ={index}  data={row} keys={keys}/></tr>
+        })
+      }
+      
   }
-   renderTableData() {
-    return this.state.athletes.map((athletes, index) => {
-       const { id, firstname, lastname, identified_gender, email, dob } = athletes //destructuring
-       return (
-          <tr key={id}>
-             <td>{id}</td>
-             <td>{firstname}</td>
-             <td>{lastname}</td>
-             <td>{identified_gender}</td>
-             <td>{email}</td>
-             <td>{dob}</td>
-          </tr>
-       )
-    })
- }
 
  renderTableHeader() {
     let header = Object.keys(this.state.athletes[0])
@@ -63,7 +50,7 @@ class TableComp extends Component {
       return (
         <div>
         <h1 id='title'>{title}</h1>
-        <Table>
+        <Table responsive striped bordered hover size="sm">
             <thead>
                 <tr>{this.getHeader()}</tr>
                 </thead>
@@ -78,7 +65,7 @@ class TableComp extends Component {
 
 const RenderRow = function(props) {
     return props.keys.map((key, index)=> {
-        return <td key={props.data[key]}>{props.data[key]}</td>
+        return <td key={index} value={props.data[key]}>{props.data[key]}</td>
       })
 }
 
