@@ -30,7 +30,7 @@ You will also see any lint errors in the console.
 
 ### Configure the Postgre SQL Database
 
-All the configuration in order to comunicatite with the database has been made in the `server.js` file.
+All the configuration in order to comunicatite with the database has been made in the `api.js` file.
 
 ```JavaScript
 const pool = new pg.Pool({
