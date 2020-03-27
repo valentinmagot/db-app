@@ -65,7 +65,7 @@ class TableComp extends Component {
 
 const RenderRow = function(props) {
     return props.keys.map((key, index)=> {
-        return <td key={props.data[key]}>{props.data[key]}</td>
+        return <td key={index} value={props.data[key]}>{props.data[key]}</td>
       })
 }
 

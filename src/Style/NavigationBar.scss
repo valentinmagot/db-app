@@ -1,4 +1,3 @@
-
 $primary: #222C34;
 $secondary: #F2F2F2;
 $control: #D95D30;
@@ -26,6 +25,7 @@ $Odibee: 'Odibee Sans', cursive;
 }
 
 .link:hover:last-child {
+  text-decoration: none;
   color: $lang;
  
 }
@@ -49,10 +49,6 @@ $Odibee: 'Odibee Sans', cursive;
 .transparent {
   background-color: transparent;
   box-shadow: none;
-  // top: 0;
-  // right: 0;
-  // left: 0;
-  // z-index: 1030;
 }
 
 .parent {

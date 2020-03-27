@@ -1,4 +1,3 @@
-
 $primary: #222C34;
 $secondary: #F2F2F2;
 $tertiary: rgba(242, 242, 242, 0.70);
@@ -27,7 +26,6 @@ $transparent: 'transparent';
   display: flex;
   flex-direction: column;
 //   justify-content: center;
-  
 
 }
 
@@ -70,6 +68,7 @@ $transparent: 'transparent';
 
 .button {
     text-transform: uppercase;
+    text-decoration: none;
     padding-top: .5rem;
     padding-bottom: .5rem;
     color: $control !important;
@@ -86,6 +85,7 @@ $transparent: 'transparent';
     background-color: $bg-used !important;
     border: 1px solid $control-used !important;
     cursor: pointer;
+    text-decoration: none;
 }
 
 @media only screen and (min-width : 600px) {

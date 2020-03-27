@@ -1,0 +1,81 @@
+$primary: #222C34;
+$secondary: #F2F2F2;
+$tertiary: rgba(242, 242, 242, 0.70);
+$control: #D95D30;
+$control-active: rgba(217, 93, 48, 0.555);
+$control-used: #F4AB82;
+$bg-used: #5D646A;
+$lang: #A63921;
+$roboto: 'Roboto', sans-serif;
+$lato: 'Lato', sans-serif;
+$siracha: 'Sriracha', cursive;
+$Odibee: 'Odibee Sans', cursive;
+$transparent: 'transparent';
+
+.page {
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+//   justify-content: center;
+  
+}
+
+.content {
+    font-family: $roboto;
+    margin-top: auto;
+    margin-bottom: auto;
+    color: $primary;
+    text-align: center;
+    width: 80%;
+    height: 70%;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: center;
+}
+
+/*divider-text*/
+.divider-text {
+    position: relative;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.divider-text span {
+    padding: 7px;
+    font-size: 12px;
+    position: relative;   
+    z-index: 2;
+}
+.divider-text:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    top: 55%;
+    left: 0;
+    z-index: 1;
+}
+
+// Button
+.reg-button {
+    text-transform: uppercase;
+    padding: .5rem;
+    color: $control!important;
+    background-color: $primary !important;
+    border: 2px solid $control !important;
+    cursor: pointer;
+    font-size: .75em;
+    border-radius: .25rem!important;
+    text-decoration: none;
+}
+
+.reg-button:hover {
+    color: $primary  !important;
+    background-color: #DE7343  !important;
+    border: 2px solid #DE7343 !important;
+    text-decoration: none;
+    cursor: pointer;
+}

@@ -1,21 +1,21 @@
 let express = require('express');
 let bodyParser = require('body-parser')
-const pg = require('pg');
 const PORT = 3001;
+
+require('dotenv').config()
+
+
+const db = require('./api')
+
 
 let app = express();
 
-const pool = new pg.Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'Leaderboard_migrated',
-    password: 'valentin0604',
-    port: 5432
-});
-// pool.query('SELECT * FROM athletes', (err, res) => {
-//     console.log(err, res);
-//     pool.end();
-// });
+let partners = [ 
+    {token: 'af745d84dafd54eccde54b07a174fed8'}
+];
+
+
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
@@ -26,70 +26,26 @@ app.use(function(request, response, next) {
     next();
 })
 
-app.get('/api/athletes', function(request, response) {
-    pool.connect((err, db, done)=>{
-        if(err){
-            return  response.status(400).send(err);
-        }else {
-
-            db.query('SELECT * FROM athletes', (err, table) => {
-                done();
-                if(err){
-                    return  response.status(400).send(err);
-                }else {
-                    console.log('DATA OBTAINED')
-                    return response.status(200).send(table.rows);
-                }
-            });
-
-        }
-    })
+app.get('/', (request, response) => {
+    response.json({ info: 'FitBoard database API' })
     
-});
+})
 
-app.get('/api/competitions', function(request, response) {
-    pool.connect((err, db, done)=>{
-        if(err){
-            return  response.status(400).send(err);
-        }else {
+app.get('/api/', (request, response) => {
+    response.json({ info: 'A token is required to access the FitBoard API' })
+})
 
-            db.query('SELECT * FROM competitions', (err, table) => {
-                done();
-                if(err){
-                    return  response.status(400).send(err);
-                }else {
-                    console.log('DATA OBTAINED')
-                    return response.status(200).send(table.rows);
-                }
-            });
+app.get('/api/athletes', db.getAthletes)
 
-        }
-    })
-    
-});
+app.get('/api/partners', db.getPartners)
 
-app.get('/api/registrations', function(request, response) {
-    pool.connect((err, db, done)=>{
-        if(err){
-            return  response.status(400).send(err);
-        }else {
+app.get('/api/athletes/:id', db.getAthletesByIdentifier)
 
-            db.query('SELECT * FROM registrations', (err, table) => {
-                done();
-                if(err){
-                    return  response.status(400).send(err);
-                }else {
-                    console.log('DATA OBTAINED')
-                    return response.status(200).send(table.rows);
-                }
-            });
 
-        }
-    })
-    
-});
+app.get('/api/competitions', db.getCompetitions)
+
+app.get('/api/registrations', db.getRegistrations);
+
+app.post('/api/athletes', db.addAthletes);
 
 app.listen(PORT, () => console.log('Listening on port ' + PORT));
-
-
-

@@ -14,13 +14,13 @@ class LandingPage extends Component {
       return (
         <div className="hero-image text-center" >
            <NavigationBar bgColor='transparent'/>
-            <div className='info' >
-               <p className="main-text"  >MeFit's FitBoard 
-               allows <br /> cross-fit enthusiasts 
-               to compare <br /> the best athletes worldwide</p>
-               <Button bsPrefix='button' href={'/Data'} variant="outline-primary" >Show me the best</Button>
-               <p className="sub-text">Our pround parteners <a className='partners-link' href={'/'}>page</a></p>
-          </div>
+        <div className='info' >
+           <p className="main-text"  >MeFit's FitBoard 
+           allows <br /> cross-fit enthusiasts 
+           to compare <br /> the best athletes worldwide</p>
+           <Button bsPrefix='button' href={'/Data'} variant="outline-primary" >Show me the best</Button>
+           <p className="sub-text">Our proud partners <a className='partners-link' href={'/PartnersPage'}>page</a></p>
+        </div>
      </div>
       )
    }
