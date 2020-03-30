@@ -63,7 +63,7 @@ class HamburgerMenu extends Component {
       return (
         <div className="burger">
         <Menu onClick={this.props.onClick} styles={this.styles.button} >
-              <a id="about" className="menu-item" href={"/Data"}>Data</a>
+              <a id="about" className="menu-item" href={"/Data"}>Leaderboard</a>
             </Menu>
       </div>
       );

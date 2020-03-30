@@ -23,7 +23,7 @@ class NavigationBar extends Component {
           </Navbar.Brand>
           <Menu  />
           <Nav id="nav-link" >
-            <Nav.Link bsPrefix="link"  className="mx-2 px-3 rounded" href={'/Data'}>Data</Nav.Link>
+            <Nav.Link bsPrefix="link"  className="mx-2 px-3 rounded" href={'/Data'}>Leaderboard</Nav.Link>
           </Nav>
         </Navbar>
       </div>
