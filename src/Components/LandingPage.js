@@ -19,7 +19,7 @@ class LandingPage extends Component {
            allows <br /> cross-fit enthusiasts 
            to compare <br /> the best athletes worldwide</p>
            <Button bsPrefix='button' href={'/Data'} variant="outline-primary" >Show me the best</Button>
-           <p className="sub-text">Our proud partners <a className='partners-link' href={'/PartnersPage'}>page</a></p>
+           <p className="sub-text">Our proud partners <a className='partners-link' href={'/Partners'}>page</a></p>
         </div>
      </div>
       )

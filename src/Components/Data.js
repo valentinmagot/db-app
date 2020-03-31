@@ -64,6 +64,7 @@ class Data extends Component {
 
           
       }
+      
       setDuration(){
 
         this.state.competitions.forEach(element => {

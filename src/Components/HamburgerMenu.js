@@ -45,11 +45,13 @@ class HamburgerMenu extends Component {
         },
         bmItemList: {
           color: '#b8b7ad',
-          padding: '0.8em'
+          padding: '0.8em',
+          textAlign: 'center'
         },
         bmItem: {
           display: 'block',
-          color: '#ffff'
+          color: '#ffff',
+          textDecoration:'none'
         },
         bmOverlay: {
           background: 'rgba(0, 0, 0, 0.3)',
@@ -64,6 +66,8 @@ class HamburgerMenu extends Component {
         <div className="burger">
         <Menu onClick={this.props.onClick} styles={this.styles.button} >
               <a id="about" className="menu-item" href={"/Data"}>Leaderboard</a>
+              <a id="about" className="menu-item" href={"/Competitions"}>Competitions</a>
+              <a id="about" className="menu-item" href={"/Partners"}>Partners</a>
             </Menu>
       </div>
       );

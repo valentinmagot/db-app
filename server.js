@@ -41,6 +41,7 @@ app.get('/api/partners', db.getPartners)
 
 app.get('/api/athletes/:id', db.getAthletesByIdentifier)
 
+app.get('/api/competitionsInfos', db.getCompetitionsInfo)
 
 app.get('/api/competitions', db.getCompetitions)
 

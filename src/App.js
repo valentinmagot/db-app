@@ -6,7 +6,8 @@ import {  BrowserRouter as Router  , Switch, Route} from 'react-router-dom';
 // import NavigationBar from './NavigationBar.js';
 import Data from './Components/Data.js';
 import LandingPage from './Components/LandingPage.js';
-import PartnersPage from './Components/PartnersPage';
+import Partners from './Components/Partners';
+import Competitions from './Components/Competitions';
 
 
 class App extends Component {
@@ -24,7 +25,8 @@ class App extends Component {
       <Switch >
             <Route  path="/" exact component={LandingPage}/>
             <Route path="/Data" component={Data}/>
-            <Route path="/PartnersPage" component={PartnersPage}/>
+            <Route path="/Partners" component={Partners}/>
+            <Route path="/Competitions" component={Competitions}/>
         </Switch>
     </Router>
     );

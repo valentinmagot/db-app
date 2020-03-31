@@ -53,6 +53,26 @@ const getPartners = (request, response) => {
     })
 }
 
+const getCompetitionsInfo = (request, response) => {
+
+    pool.connect((err, db, done)=>{
+        if(err){
+            return  response.status(400).send(err);
+        }else {
+            db.query("select p.company, c.name, venu, category, start_date_time, end_date_time, age(end_date_time, start_date_time) as duration, c.address_line,c.city,c.state,c.zip, c.contact_phone, c.contact_email, max_male, max_female, number_of_events from competitions c, partners p where c.partner_id = p.id;",
+             (err, table) => {
+                done();
+                if(err){
+                    return  response.status(400).send(err);
+                }else {
+                    console.log('COMPETITIONS INFO OBTAINED')
+                    return response.status(200).send(table.rows);
+                }
+            });
+
+        }
+    })
+}
 
 const getAthletesByIdentifier = (request, response) => {
     const id = String(request.params.id)
@@ -150,6 +170,7 @@ module.exports = {
     getCompetitions,
     getRegistrations,
     getAthletesByIdentifier,
+    getCompetitionsInfo,
     // POST
     addAthletes,
     
