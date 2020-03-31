@@ -37,15 +37,20 @@ app.get('/api/', (request, response) => {
 
 app.get('/api/athletes', db.getAthletes)
 
+app.get('/athletes', db.getAthletesInfo)
+
 app.get('/api/partners', db.getPartners)
 
 app.get('/api/athletes/:id', db.getAthletesByIdentifier)
 
 app.get('/api/competitionsInfos', db.getCompetitionsInfo)
+app.get('/api/scores', db.getScores)
 
 app.get('/api/competitions', db.getCompetitions)
 
 app.get('/api/registrations', db.getRegistrations);
+
+app.get('/events_info', db.getEventsInfo);
 
 app.post('/api/athletes', db.addAthletes);
 

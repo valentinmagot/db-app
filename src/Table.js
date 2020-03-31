@@ -46,11 +46,9 @@ class TableComp extends Component {
  }
 
    render() { //Whenever our class runs, render method will be called automatically, it may have already defined in the constructor behind the scene.
-    let title = this.props.title;
       return (
-        <div>
-        <h1 id='title'>{title}</h1>
-        <Table responsive striped bordered hover size="sm">
+        <div className="p-4 mx-auto">
+        <Table responsive striped bordered hover size="sm-2">
             <thead>
                 <tr>{this.getHeader()}</tr>
                 </thead>

@@ -30,14 +30,15 @@ You will also see any lint errors in the console.
 
 ### Configure the Postgre SQL Database
 
-All the configuration in order to comunicatite with the database has been made in the `api.js` file.
+All the configuration in order to communicate with the database has been made in the `api.js` file.
+Edit the `.env` file to configure the database credentials.
 
-```JavaScript
-const pool = new pg.Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'databasename',
-    password: 'databasepassword',
-    port: 5432
-});
 ```
+DB_USER=postgres
+DB_PASSWORD=valentin0604
+DB_HOST=localhost
+DB_PORT=5432
+DB_DATABASE=underscore
+```
+
+## API
