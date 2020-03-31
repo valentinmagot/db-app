@@ -32,7 +32,7 @@ $transparent: 'transparent';
     background-color: transparent;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-self: center;
 }
 
@@ -59,16 +59,31 @@ $transparent: 'transparent';
     z-index: 1;
 }
 
-// Button
+// Tabs
+
+#group{
+    align-self: center;
+}
+
+.reg-button:last-child {
+    border-bottom-left-radius: 0.25em!important;
+    border-bottom-right-radius: 0.25em!important;
+}
+
+.reg-button:first-child {
+    border-top-left-radius: 0.25em!important;
+    border-top-right-radius: 0.25em!important;
+}
+
 .reg-button {
+
     text-transform: uppercase;
-    padding: .5rem;
+    padding: .75rem;
     color: $control!important;
     background-color: $primary !important;
-    border: 2px solid $control !important;
+    border-bottom: 1px solid $control !important;;
     cursor: pointer;
     font-size: .75em;
-    border-radius: .25rem!important;
     text-decoration: none;
 }
 
