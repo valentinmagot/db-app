@@ -7,6 +7,7 @@ import {  BrowserRouter as Router  , Switch, Route} from 'react-router-dom';
 import Data from './Components/Data.js';
 import LandingPage from './Components/LandingPage.js';
 import Partners from './Components/Partners';
+import Competitions from './Components/Competitions';
 
 
 class App extends Component {
@@ -25,6 +26,7 @@ class App extends Component {
             <Route  path="/" exact component={LandingPage}/>
             <Route path="/Data" component={Data}/>
             <Route path="/Partners" component={Partners}/>
+            <Route path="/Competitions" component={Competitions}/>
         </Switch>
     </Router>
     );

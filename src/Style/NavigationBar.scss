@@ -24,13 +24,9 @@ $Odibee: 'Odibee Sans', cursive;
   color: $secondary;
 }
 
-.link:hover:last-child {
-  text-decoration: none;
-  color: $lang;
- 
-}
 
 .link:hover {
+  text-decoration: none;
   color: $control;
 
 }
