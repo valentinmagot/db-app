@@ -64,7 +64,30 @@ const getAthletes = (request, response) => {
     })
 }
 
+const getAthletesInfo = (request, response) => {
+    
+    pool.connect((err, db, done)=>{
+        if(err){
+            return  response.status(400).send(err);
+        }else {
+
+            db.query('SELECT id, name, age, gender, country FROM athletes_info;', (err, table) => {
+                done();
+                if(err){
+                    return  response.status(400).send(err);
+                }else {
+                    console.log('ATHLETES INFO OBTAINED')
+                    return response.status(200).send(table.rows);
+                }
+            });
+
+        }
+    })
+}
+
+
 const getPartnersInfo = (request, response) => {
+
     
     pool.connect((err, db, done)=>{
         if(err){
@@ -143,6 +166,46 @@ const getCompetitions = (request, response) => {
                     return  response.status(400).send(err);
                 }else {
                     console.log('COMPETITIONS OBTAINED')
+                    return response.status(200).send(table.rows);
+                }
+            });
+
+        }
+    })
+}
+
+const getEventsInfo = (request, response) => {
+    pool.connect((err, db, done)=>{
+        if(err){
+            return  response.status(400).send(err);
+        }else {
+
+            db.query('SELECT * FROM events_info', (err, table) => {
+                done();
+                if(err){
+                    return  response.status(400).send(err);
+                }else {
+                    console.log('EVENTS INFO OBTAINED')
+                    return response.status(200).send(table.rows);
+                }
+            });
+
+        }
+    })
+}
+
+const getScores = (request, response) => {
+    pool.connect((err, db, done)=>{
+        if(err){
+            return  response.status(400).send(err);
+        }else {
+
+            db.query('select id, score_time, score_rep, event_name from score_weeks', (err, table) => {
+                done();
+                if(err){
+                    return  response.status(400).send(err);
+                }else {
+                    console.log('COMPETITIONS INFO OBTAINED')
                     return response.status(200).send(table.rows);
                 }
             });
@@ -270,6 +333,12 @@ module.exports = {
     // GET COMPETITION
     getCompetitions,
     getCompetitionsInfo,
+    getAthletesInfo,
+    getScores,
+    // POST
+    addAthletes,
+
+    getEventsInfo,
     // GET REGISTRATION
     getRegistrations,
 

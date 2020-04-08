@@ -57,12 +57,19 @@ app.delete('/api/registrations/:id', passport.authenticate('bearer', { session: 
 // app.get('/api/athletes/:id', passport.authenticate('bearer', { session: false }),db.getAthletesByIdentifier)
 
 
+app.get('/athletes', db.getAthletesInfo)
+
+app.get('/api/partners', db.getPartners)
 
 
+app.get('/api/competitionsInfos', db.getCompetitionsInfo)
+app.get('/api/scores', db.getScores)
 
 // app.get('/api/competitions', db.getCompetitions)
 
 
-// app.post('/api/athletes', passport.authenticate('bearer', { session: false }), db.addAthletes);
+app.get('/events_info', db.getEventsInfo);
+
+app.post('/api/athletes', db.addAthletes);
 
 app.listen(PORT, () => console.log('Listening on port ' + PORT));
