@@ -42,3 +42,38 @@ DB_DATABASE=underscore
 ```
 
 ## API
+
+
+
+Hera are some example on how to manage registrations with the API.
+
+You need a partner identifier to connect to the API.
+
+```
+// GET REGISTRATIONS
+// curl -v -H "Authorization: Bearer a5d4ce7cd5f387c1e8e6316846dac953" -X GET http://localhost:3001/api/registrations
+// POST REGISTRATION
+// curl -v -H "Authorization: Bearer a5d4ce7cd5f387c1e8e6316846dac953" -X POST -d  "competition_id=1&athlete_id=10&identified_gender=F&athlete_email=test@email.com&year=2020" http://localhost:3001/api/register
+// PUT REGISTRATION
+// curl -v -H "Authorization: Bearer a5d4ce7cd5f387c1e8e6316846dac953" -X PUT -d "competition_id=1&athlete_id=10&identified_gender=10&athlete_email=test@email.com&year=2020"  http://localhost:3001/api/registrations/10
+// DELETE REGISTRATION
+// curl -v -H "Authorization: Bearer a5d4ce7cd5f387c1e8e6316846dac953" -X "DELETE"  http://localhost:3001/api/registrations/10
+```
+
+## Screenshot
+
+Home page
+
+![Home](/sc/home.png)
+
+Partners page
+
+![Partners](/sc/partners.png)
+
+Competitions page
+
+![Competitions](/sc/competitions.png)
+
+Leaderboard page
+
+![Leaderboard](/sc/leaderboard.png)

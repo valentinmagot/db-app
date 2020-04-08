@@ -18,7 +18,7 @@ class Partners extends Component {
   componentDidMount() {
     console.log("COMPONENT HAS MOUNTED");
     var that = this;
-    fetch('http://localhost:3001/api/partners')
+    fetch('http://localhost:3001/partnersInfo')
           .then(function(response){
             response.json().then(function(data){
                 console.log(data);
