@@ -30,14 +30,50 @@ You will also see any lint errors in the console.
 
 ### Configure the Postgre SQL Database
 
-All the configuration in order to comunicatite with the database has been made in the `api.js` file.
+All the configuration in order to communicate with the database has been made in the `api.js` file.
+Edit the `.env` file to configure the database credentials.
 
-```JavaScript
-const pool = new pg.Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'databasename',
-    password: 'databasepassword',
-    port: 5432
-});
 ```
+DB_USER=postgres
+DB_PASSWORD=valentin0604
+DB_HOST=localhost
+DB_PORT=5432
+DB_DATABASE=underscore
+```
+
+## API
+
+
+
+Hera are some example on how to manage registrations with the API.
+
+You need a partner identifier to connect to the API.
+
+```
+// GET REGISTRATIONS
+// curl -v -H "Authorization: Bearer a5d4ce7cd5f387c1e8e6316846dac953" -X GET http://localhost:3001/api/registrations
+// POST REGISTRATION
+// curl -v -H "Authorization: Bearer a5d4ce7cd5f387c1e8e6316846dac953" -X POST -d  "competition_id=1&athlete_id=10&identified_gender=F&athlete_email=test@email.com&year=2020" http://localhost:3001/api/register
+// PUT REGISTRATION
+// curl -v -H "Authorization: Bearer a5d4ce7cd5f387c1e8e6316846dac953" -X PUT -d "competition_id=1&athlete_id=10&identified_gender=10&athlete_email=test@email.com&year=2020"  http://localhost:3001/api/registrations/10
+// DELETE REGISTRATION
+// curl -v -H "Authorization: Bearer a5d4ce7cd5f387c1e8e6316846dac953" -X "DELETE"  http://localhost:3001/api/registrations/10
+```
+
+## Screenshot
+
+Home page
+
+![Home](/sc/home.png)
+
+Partners page
+
+![Partners](/sc/partners.png)
+
+Competitions page
+
+![Competitions](/sc/competitions.png)
+
+Leaderboard page
+
+![Leaderboard](/sc/leaderboard.png)

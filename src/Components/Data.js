@@ -50,19 +50,7 @@ class Data extends Component {
             })
           })
 
-          fetch('http://localhost:3001/api/registrations')
-          .then(function(response){
-            response.json().then(function(data){
-                console.log(data);
-                if(data.name !== 'error'){
-                  that.setState({
-                    registrations: data,
-                  })
-                }
-            })
-          })
 
-          
       }
       
       setDuration(){
@@ -78,16 +66,13 @@ class Data extends Component {
   render() {
     let athletes = this.state.athletes;
     let competitions = this.state.competitions;
-    let registrations = this.state.registrations;
     let athleteTitle = 'Athlete Table';
     let competitionTitle = 'Competition Table';
-    let registrationTitle = 'Registration Table';
     return (
       <div className="Data">
         <NavigationBar bgColor='parent' />
         <TableComp title={athleteTitle} data={athletes}/>
         <TableComp title={competitionTitle} data={competitions}/>
-        <TableComp title={registrationTitle} data={registrations}/>
       </div>
     );
 

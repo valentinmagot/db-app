@@ -18,7 +18,7 @@ class Competitions extends Component {
   componentDidMount() {
     console.log("COMPONENT HAS MOUNTED");
     var that = this;
-    fetch('http://localhost:3001/api/competitionsInfos')
+    fetch('http://localhost:3001/competitionsInfos')
           .then(function(response){
             response.json().then(function(data){
                 console.log(data);

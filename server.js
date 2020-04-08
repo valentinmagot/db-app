@@ -1,20 +1,24 @@
 let express = require('express');
 let bodyParser = require('body-parser')
 const PORT = 3001;
+var passport = require('passport');
+var Strategy = require('passport-http-bearer').Strategy;
 
 require('dotenv').config()
 
 
 const db = require('./api')
 
-
 let app = express();
 
-let partners = [ 
-    {token: 'af745d84dafd54eccde54b07a174fed8'}
-];
-
-
+passport.use(new Strategy(
+    function(token, cb) {
+      db.getPartners(token, function(err, user) {
+        if (err) { return cb(err); }
+        if (!user) { return cb(null, false); }
+        return cb(null, user);
+      });
+    }));
 
 
 app.use(bodyParser.json());
@@ -26,27 +30,39 @@ app.use(function(request, response, next) {
     next();
 })
 
+// APPLICATION
 app.get('/', (request, response) => {
-    response.json({ info: 'FitBoard database API' })
-    
+    response.json({ info: 'FitBoard database API can be access with a token' })
 })
 
-app.get('/api/', (request, response) => {
-    response.json({ info: 'A token is required to access the FitBoard API' })
+app.get('/athletes' , db.getAthletes)
+
+app.get('/partnersInfo', db.getPartnersInfo)
+
+app.get('/competitionsInfos', db.getCompetitionsInfo)
+
+// API
+app.get('/api/', passport.authenticate('bearer', { session: false }), (request, response) => {
+    response.json({ info: 'Welcome to the FitBoard API' })
 })
 
-app.get('/api/athletes', db.getAthletes)
+app.post('/api/register', passport.authenticate('bearer', { session: false }),db.addRegistrations)
 
-app.get('/api/partners', db.getPartners)
+app.get('/api/registrations', passport.authenticate('bearer', { session: false }), db.getRegistrations);
 
-app.get('/api/athletes/:id', db.getAthletesByIdentifier)
+app.put('/api/registrations/:id', passport.authenticate('bearer', { session: false }), db.updateRegistrations);
 
-app.get('/api/competitionsInfos', db.getCompetitionsInfo)
+app.delete('/api/registrations/:id', passport.authenticate('bearer', { session: false }), db.deleteRegistrations);
 
-app.get('/api/competitions', db.getCompetitions)
+// app.get('/api/athletes/:id', passport.authenticate('bearer', { session: false }),db.getAthletesByIdentifier)
 
-app.get('/api/registrations', db.getRegistrations);
 
-app.post('/api/athletes', db.addAthletes);
+
+
+
+// app.get('/api/competitions', db.getCompetitions)
+
+
+// app.post('/api/athletes', passport.authenticate('bearer', { session: false }), db.addAthletes);
 
 app.listen(PORT, () => console.log('Listening on port ' + PORT));
