@@ -85,27 +85,6 @@ const getAthletesInfo = (request, response) => {
     })
 }
 
-const getPartners = (request, response) => {
-    pool.connect((err, db, done)=>{
-        if(err){
-            return  response.status(400).send(err);
-        }else {
-            
-            db.query('SELECT * FROM partners', (err, table) => {
-                done();
-                if(err){
-                    return  response.status(400).send(err);
-                }else {
-                    console.log(`PARTNERS OBTAINED`)
-                    return response.status(200).send(table.rows);
-                    
-                }
-            });
-
-        }
-    })
-}
-
 
 const getPartnersInfo = (request, response) => {
 
